@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <div id="demo">
+        <form>
+            <h1>Number of points: <input type="text" id="points"></h1><br><br>
+            <h1><input type="button" onclick="showShortURL()" value="Submit"></h1>
+        </form>
 
-<div id="demo">
-    <form>
-        Number of points: <input type="text" id="points"><br><br>
-        <input type="button" onclick="doIt()" value="Submit">
-    </form>
-
+        <h1>URL to hide your point estimate:</h1>
+        <h1><p id="url"></p></h1>
+    </div>
+    
     <script>
-        function doIt() {
+        // Some code derived from https://gist.github.com/gbl08ma/6115095
+        function showShortURL() {
             var number = document.getElementById("points").value;
-            showShortURL(number);
+
+            var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("url").innerHTML = this.responseText;
+                    }
+                };
+
+                var urlToShorten = "http://christopher-prince.github.io/points.html?number=" + number;
+                var generateURL = "https://tny.im/yourls-api.php?action=shorturl&format=simple&url=";
+                xhttp.open("GET", generateURL + urlToShorten, true);
+                xhttp.send();
         }
     </script>
-
-  <h2>Let AJAX change this text</h2>
-  <button type="button" onclick="loadDoc()">Change Content</button>
-</div>
-    
-<script>
-    // Some code derived from https://gist.github.com/gbl08ma/6115095
-    function showShortURL(number) {
-        var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("demo").innerHTML = this.responseText;
-                }
-            };
-    
-            var urlToShorten = "http://christopher-prince.github.io/points.html?number=" + number;
-            var generateURL = "https://tny.im/yourls-api.php?action=shorturl&format=simple&url=";
-            xhttp.open("GET", generateURL + urlToShorten, true);
-            xhttp.send();
-    }
-</script>
 
 </body>
 </html>
