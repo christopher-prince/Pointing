@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        .submit {
+            width: 10em;  height: 4em;
+        }
+    </style>
+</head>
 <body>
     <div id="demo">
         <form>
-            <h1>Number of points: <input type="text" id="points"></h1><br><br>
-            <h1><input type="button" onclick="showShortURL()" value="Submit"></h1>
+            <h1>
+                Number of points: <input type="text" id="points">
+                <input type="button" onclick="showShortURL()" class="submit" value="Submit">
+            </h1>
         </form>
 
         <h1>URL to hide your point estimate:</h1>
