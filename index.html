@@ -23,6 +23,9 @@
     <script>
         // Some code derived from https://gist.github.com/gbl08ma/6115095
         function showShortURL() {
+            // Clear out the field, so it will be more clear when the new URL has appeared.
+            document.getElementById("url").innerHTML = ""
+            
             var number = document.getElementById("points").value;
 
             var xhttp = new XMLHttpRequest();
