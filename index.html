@@ -31,9 +31,14 @@
                         document.getElementById("url").innerHTML = this.responseText;
                     }
                 };
+            
+                // Adding a random string to the end of the URL so that we force tny.im to generate a different URL each time-- otherwise, it's too smart, and recycles URL's.
+                var paramsForURLToShorten = "number=" + number + "&random=" + Math.random();
 
-                var urlToShorten = "http://christopher-prince.github.io/points.html?number=" + number;
+                var urlToShorten = "http://christopher-prince.github.io/points.html?" + 
+                    paramsForURLToShorten;
                 var generateURL = "https://tny.im/yourls-api.php?action=shorturl&format=simple&url=";
+            
                 xhttp.open("GET", generateURL + urlToShorten, true);
                 xhttp.send();
         }
