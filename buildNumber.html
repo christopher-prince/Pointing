@@ -4,7 +4,7 @@
     <!-- See http://momentjs.com and http://momentjs.com/timezone/
     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.9/moment-timezone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.9/moment-timezone-with-data-2010-2020.min.js"></script>
 </head>
 <body>
 
@@ -37,12 +37,19 @@
     document.write("; Day = " + day);
     document.write("; Hour = " + hours);
     document.write("; Minute = " + minutes);
+</script>
     
+<em style="font-weight:bold">
+    (Eastern US timezone)
+</em>
+    
+<br>
+<br>
+
+<script>
     var buildNumber = year + month + day + hours + minutes;
 </script>
     
-<br>
-<br>
 Build number: 
 <br>
 <span style="font-size:50pt">
