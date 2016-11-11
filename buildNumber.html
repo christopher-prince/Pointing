@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    // Bulid number format is: yyyymmddhhmm
+    // See https://angieslist.atlassian.net/wiki/pages/viewpage.action?pageId=176521260
+    
+    var d = new Date();
+    
+    var year = d.getFullYear();
+    
+    // Returns a string.
+    function prependZeroIfNeeded(value) {
+        var retValue = "" + value;
+        if (value <= 9) {
+            retValue = "0" + value;
+        }
+        
+        return retValue;
+    }
+    
+    var month = prependZeroIfNeeded(d.getMonth() + 1); // getMonth returns 0...11 so add 1.
+    var day = prependZeroIfNeeded(d.getDate());
+    var hours = prependZeroIfNeeded(d.getHours());
+    var minutes = prependZeroIfNeeded(d.getMinutes());
+    
+    document.write("Year = " + year);
+    document.write("; Month = " + month);
+    document.write("; Day = " + day);
+    document.write("; Hour = " + hours);
+    document.write("; Minute = " + minutes);
+    
+    var buildNumber = year + month + day + hours + minutes;
+</script>
+    
+<br>
+Build number: 
+<br>
+<span style="font-size:50pt">
+<script>
+    document.write(buildNumber);
+</script>
+</span>
+
+</body>
+</html>
+
