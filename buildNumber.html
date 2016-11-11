@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <!-- See http://momentjs.com and http://momentjs.com/timezone/
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.9/moment-timezone.min.js"></script>
+</head>
 <body>
 
 <script>
     // Bulid number format is: yyyymmddhhmm
     // See https://angieslist.atlassian.net/wiki/pages/viewpage.action?pageId=176521260
     
-    var d = new Date();
-    
+    // Work in Eastern time zone so distributed team members can create build numbers.
+    var d = moment().tz("America/New_York").toDate();
+        
     var year = d.getFullYear();
     
     // Returns a string.
@@ -34,6 +41,7 @@
     var buildNumber = year + month + day + hours + minutes;
 </script>
     
+<br>
 <br>
 Build number: 
 <br>
